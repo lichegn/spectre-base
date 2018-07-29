@@ -29,3 +29,8 @@ RUN apt-get install -y --no-install-recommends \
     libqt5webchannel5 \
     libtool \
     wget
+
+COPY startSpectrecoind.sh /home/$USERNAME/startSpectrecoind.sh
+RUN chown $USERNAME:$GROUPNAME /home/$USERNAME/startSpectrecoind.sh
+
+ENTRYPOINT ["/home/$USERNAME/startSpectrecoind.sh"]

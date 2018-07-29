@@ -8,15 +8,16 @@ necessary to rebuild the required environment again and again.
 ## Facts
 * Image is based on Debian Stretch
 * Dedicated user _spectre_ with UID 1000 and GID 1000
-* Boost v1.67
-  * libchrono
-  * libfilesystem
-  * libprogram_options
-  * libthread
-
+* Installed packages:
+  * ca-certificates
+  * mc
+  * libqt5webchannel5
+  * libtool
+  * wget
+    
 ## How it is build
 ```
-docker build -t hlxeasy/spectre-base:latest .
+docker build -t spectreproject/spectre-base:latest .
 ```
 
 ### Using more than one core
@@ -24,5 +25,7 @@ If multiple cores available for build, you can pass the amount of cores
 to use to the build command:
 
 ```
-docker build -t hlxeasy/spectre-base:latest --build-arg BUILD_THREADS=6 .
+docker build -t spectreproject/spectre-base:latest --build-arg BUILD_THREADS=12 .
 ```
+
+Default value is BUILD_THREADS=6
