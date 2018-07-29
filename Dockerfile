@@ -30,7 +30,6 @@ RUN apt-get install -y --no-install-recommends \
     libtool \
     wget
 
-COPY startSpectrecoind.sh /home/$USERNAME/startSpectrecoind.sh
-RUN chown $USERNAME:$GROUPNAME /home/$USERNAME/startSpectrecoind.sh
+COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
 
-ENTRYPOINT ["/home/$USERNAME/startSpectrecoind.sh"]
+ENTRYPOINT ["/usr/local/bin/spectrecoind.sh"]
