@@ -26,8 +26,13 @@ RUN apt-get update -y \
 RUN apt-get install -y --no-install-recommends \
     ca-certificates \
     mc \
+    libboost-chrono1.62.0 \
+    libboost-filesystem1.62.0 \
+    libboost-program-options1.62.0 \
+    libboost-thread1.62.0 \
     libqt5webchannel5 \
     libtool \
+    libseccomp2 \
     wget
 
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
