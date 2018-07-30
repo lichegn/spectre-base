@@ -7,10 +7,10 @@
 #
 # ============================================================================
 
-if [ -n ${RPCUSER} ] ; then
+if [ -n "${RPCUSER}" ] ; then
     sed -i "s/rpcuser=.*$/rpcuser=${RPCUSER}/g" $HOME/.spectrecoin/spectrecoin.conf
 fi
-if [ -n ${RPCPASSWORD} ] ; then
+if [ -n "${RPCPASSWORD}" ] ; then
     sed -i "s/rpcpassword=.*$/rpcpassword=${RPCUSER}/g" $HOME/.spectrecoin/spectrecoin.conf
 fi
 
