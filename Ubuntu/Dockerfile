@@ -26,10 +26,10 @@ RUN apt-get update -y \
 RUN apt-get install -y --no-install-recommends \
     ca-certificates \
     mc \
-    libboost-chrono1.62.0 \
-    libboost-filesystem1.62.0 \
-    libboost-program-options1.62.0 \
-    libboost-thread1.62.0 \
+    libboost-chrono1.65.1 \
+    libboost-filesystem1.65.1 \
+    libboost-program-options1.65.1 \
+    libboost-thread1.65.1 \
     libevent-2.0-5 \
     libqt5webchannel5 \
     libtool \
