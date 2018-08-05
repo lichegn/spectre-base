@@ -30,7 +30,7 @@ RUN apt-get install -y --no-install-recommends \
     libboost-filesystem1.65.1 \
     libboost-program-options1.65.1 \
     libboost-thread1.65.1 \
-    libevent-2.0-5 \
+    libevent-2.1-6 \
     libqt5webchannel5 \
     libtool \
     libseccomp2 \
