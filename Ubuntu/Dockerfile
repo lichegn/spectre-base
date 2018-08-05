@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 MAINTAINER HLXEasy <hlxeasy@gmail.com>
 
 # Build parameters
