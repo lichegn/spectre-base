@@ -31,6 +31,7 @@ RUN apt-get install -y --no-install-recommends \
     libboost-program-options1.62.0 \
     libboost-thread1.62.0 \
     libevent-2.0-5 \
+    libgles2-mesa \
     libqt5webchannel5 \
     libqt5webenginewidgets5 \
     libtool \
