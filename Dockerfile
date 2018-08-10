@@ -32,6 +32,7 @@ RUN apt-get install -y --no-install-recommends \
     libboost-thread1.62.0 \
     libevent-2.0-5 \
     libqt5webchannel5 \
+    libqt5webenginewidgets5 \
     libtool \
     libseccomp2 \
     wget
