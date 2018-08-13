@@ -1,12 +1,6 @@
 #!groovy
 
-pipeline {
-    agent {
-        node {
-            label 'docker'
-        }
-    }
-
+node {
     def spectre_base
 
     stage('Clone repository') {
