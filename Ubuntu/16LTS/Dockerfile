@@ -38,6 +38,24 @@ RUN apt-get install -y --no-install-recommends \
     qtwebengine5-dev \
     wget
 
+# ============================================================================
+# Newer OpenSSL version required!
+RUN apt-get install -y --no-install-recommends \
+    make
+
+ENV OPENSSL_VERSION="1.1.0i"
+RUN wget https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz \
+ && tar xzvf openssl-${OPENSSL_VERSION}.tar.gz \
+ && cd openssl-${OPENSSL_VERSION} \
+ && ./config -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)' \
+ && make \
+ && make install \
+ && cd -
+ && rm -rf openssl-${OPENSSL_VERSION}.tar.gz \
+ && rm -rf openssl-${OPENSSL_VERSION} \
+# OpenSSL end
+# ============================================================================
+
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
 RUN chmod +x /usr/local/bin/spectrecoind.sh
 
