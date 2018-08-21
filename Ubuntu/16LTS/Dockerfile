@@ -50,7 +50,7 @@ RUN wget https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz \
  && ./config -Wl,--enable-new-dtags,-rpath,'$(LIBRPATH)' \
  && make \
  && make install \
- && cd -
+ && cd - \
  && rm -rf openssl-${OPENSSL_VERSION}.tar.gz \
  && rm -rf openssl-${OPENSSL_VERSION} \
 # OpenSSL end
