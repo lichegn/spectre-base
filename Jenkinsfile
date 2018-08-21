@@ -20,7 +20,7 @@ node('docker') {
     stage('Build CentOS image') {
         // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
         // So copy required Dockerfile to root dir for each build
-        sh "cp ./Docker/CentOS/Dockerfile ."
+        sh "cp ./CentOS/Dockerfile ."
         spectre_base = docker.build("spectreproject/spectre-base-centos")
         sh "rm Dockerfile"
     }
@@ -35,7 +35,7 @@ node('docker') {
     stage('Build Fedora image') {
         // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
         // So copy required Dockerfile to root dir for each build
-        sh "cp ./Docker/Fedora/Dockerfile ."
+        sh "cp ./Fedora/Dockerfile ."
         spectre_base = docker.build("spectreproject/spectre-base-fedora")
         sh "rm Dockerfile"
     }
@@ -49,7 +49,7 @@ node('docker') {
     stage('Build Ubuntu image') {
         // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
         // So copy required Dockerfile to root dir for each build
-        sh "cp ./Docker/Ubuntu/latest//Dockerfile ."
+        sh "cp ./Ubuntu/latest//Dockerfile ."
         spectre_base = docker.build("spectreproject/spectre-base-ubuntu")
         sh "rm Dockerfile"
     }
@@ -63,7 +63,7 @@ node('docker') {
     stage('Build Ubuntu 16LTS image') {
         // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
         // So copy required Dockerfile to root dir for each build
-        sh "cp ./Docker/Ubuntu/16LTS/Dockerfile ."
+        sh "cp ./Ubuntu/16LTS/Dockerfile ."
         spectre_base = docker.build("spectreproject/spectre-base-ubuntu-16lts")
         sh "rm Dockerfile"
     }
