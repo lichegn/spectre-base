@@ -18,7 +18,11 @@ node('docker') {
     }
 
     stage('Build CentOS image') {
-        spectre_base = docker.build("spectreproject/spectre-base-centos", "./CentOS/")
+        // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+        // So copy required Dockerfile to root dir for each build
+        sh "cp ./Docker/CentOS/Dockerfile ."
+        spectre_base = docker.build("spectreproject/spectre-base-centos")
+        sh "rm Dockerfile"
     }
     stage('Push CentOS image') {
         echo("Push of CentOS image disabled at the moment...")
@@ -29,7 +33,11 @@ node('docker') {
     }
 
     stage('Build Fedora image') {
-        spectre_base = docker.build("spectreproject/spectre-base-fedora", "./Fedora/")
+        // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+        // So copy required Dockerfile to root dir for each build
+        sh "cp ./Docker/Fedora/Dockerfile ."
+        spectre_base = docker.build("spectreproject/spectre-base-fedora")
+        sh "rm Dockerfile"
     }
     stage('Push Fedora image') {
         docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
@@ -39,7 +47,11 @@ node('docker') {
     }
 
     stage('Build Ubuntu image') {
-        spectre_base = docker.build("spectreproject/spectre-base-ubuntu", "./Ubuntu/latest/")
+        // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+        // So copy required Dockerfile to root dir for each build
+        sh "cp ./Docker/Ubuntu/latest//Dockerfile ."
+        spectre_base = docker.build("spectreproject/spectre-base-ubuntu")
+        sh "rm Dockerfile"
     }
     stage('Push Ubuntu image') {
         docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
@@ -49,7 +61,11 @@ node('docker') {
     }
 
     stage('Build Ubuntu 16LTS image') {
-        spectre_base = docker.build("spectreproject/spectre-base-ubuntu-16lts", "./Ubuntu/16LTS/")
+        // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+        // So copy required Dockerfile to root dir for each build
+        sh "cp ./Docker/Ubuntu/16LTS/Dockerfile ."
+        spectre_base = docker.build("spectreproject/spectre-base-ubuntu-16lts")
+        sh "rm Dockerfile"
     }
     stage('Push Ubuntu 16LTS image') {
         echo("Push of Ubuntu 16-LTS image disabled at the moment...")
