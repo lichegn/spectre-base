@@ -1,12 +1,14 @@
-FROM desktopcontainers/raspberrypi
+FROM arm32v7/debian:stretch-slim
 MAINTAINER HLXEasy <hlxeasy@gmail.com>
+
+COPY qemu-arm-static /usr/bin
 
 # Build parameters
 ARG USERNAME="spectre"
 ARG GROUPNAME="spectre"
 ARG PASSWORD="spectre123"
-ARG UID="1100"
-ARG GID="1100"
+ARG UID="1000"
+ARG GID="1000"
 
 # Setup spectre account
 # Create working directory
