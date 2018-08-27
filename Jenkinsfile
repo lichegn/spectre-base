@@ -62,7 +62,7 @@ node('docker') {
     stage('Build Ubuntu image') {
         // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
         // So copy required Dockerfile to root dir for each build
-        sh "cp ./Ubuntu/latest//Dockerfile ."
+        sh "cp ./Ubuntu/latest/Dockerfile ."
         spectre_base = docker.build("spectreproject/spectre-base-ubuntu")
         sh "rm Dockerfile"
     }
