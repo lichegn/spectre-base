@@ -1,7 +1,7 @@
 FROM arm32v7/debian:stretch-slim
 MAINTAINER HLXEasy <hlxeasy@gmail.com>
 
-COPY qemu-arm-static /usr/bin
+COPY RaspberryPi/qemu-arm-static /usr/bin
 
 # Build parameters
 ARG USERNAME="spectre"
