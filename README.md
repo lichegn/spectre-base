@@ -2,8 +2,9 @@
 ### Base image to install spectrecoind into
 
 This repository contains a Dockerfile to create base image which could be used
-to install spectrecoind into it. So with each build of spectrecoind it is not 
-necessary to rebuild the required environment again and again.
+to install [spectrecoind](https://github.com/spectrecoin/spectre) into it. So 
+with each build of spectrecoind it is not necessary to rebuild the required 
+environment again and again.
 
 ## Facts
 * Image is based on Debian Stretch
