@@ -29,6 +29,11 @@ pipeline {
                             docker.build("spectreproject/spectre-base", "--rm .")
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
                 stage('CentOS') {
                     agent {
@@ -41,6 +46,11 @@ pipeline {
                             sh "cp ./CentOS/Dockerfile ."
                             docker.build("spectreproject/spectre-base-centos", "--rm .")
                             sh "rm Dockerfile"
+                        }
+                    }
+                    post {
+                        always {
+                            sh "docker system prune --all"
                         }
                     }
                 }
@@ -57,6 +67,11 @@ pipeline {
                             sh "rm Dockerfile"
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
                 stage('Raspberry Pi') {
                     agent {
@@ -71,6 +86,11 @@ pipeline {
                             sh "rm Dockerfile"
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
                 stage('Ubuntu') {
                     agent {
@@ -83,6 +103,11 @@ pipeline {
                             sh "cp ./Ubuntu/latest/Dockerfile ."
                             docker.build("spectreproject/spectre-base-ubuntu", "--rm .")
                             sh "rm Dockerfile"
+                        }
+                    }
+                    post {
+                        always {
+                            sh "docker system prune --all"
                         }
                     }
                 }
@@ -105,6 +130,11 @@ pipeline {
                             }
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
                 stage('CentOS') {
                     agent {
@@ -120,6 +150,11 @@ pipeline {
                                 spectre_base.push("latest")
                             }
                             sh "rm Dockerfile"
+                        }
+                    }
+                    post {
+                        always {
+                            sh "docker system prune --all"
                         }
                     }
                 }
@@ -139,6 +174,11 @@ pipeline {
                             sh "rm Dockerfile"
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
                 stage('Raspberry Pi') {
                     agent {
@@ -154,6 +194,11 @@ pipeline {
                                 spectre_base.push("latest")
                             }
                             sh "rm Dockerfile"
+                        }
+                    }
+                    post {
+                        always {
+                            sh "docker system prune --all"
                         }
                     }
                 }
@@ -173,13 +218,13 @@ pipeline {
                             sh "rm Dockerfile"
                         }
                     }
+                    post {
+                        always {
+                            sh "docker system prune --all"
+                        }
+                    }
                 }
             }
-        }
-    }
-    post {
-        always {
-            sh "docker system prune --all"
         }
     }
 }
