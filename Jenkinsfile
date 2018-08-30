@@ -8,8 +8,90 @@ pipeline {
 //	ansiColor('xterm')
         buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '5'))
     }
+    environment {
+        // In case another branch beside master or develop should be deployed, enter it here
+        BRANCH_TO_DEPLOY = 'xyz'
+    }
     stages {
-        stage('Parallel steps') {
+        stage('Build image') {
+            when {
+                not {
+                    anyOf { branch 'develop'; branch 'master'; branch "${BRANCH_TO_DEPLOY}" }
+                }
+            }
+            parallel {
+                stage('Debian') {
+                    agent {
+                        label "docker"
+                    }
+                    steps {
+                        script {
+                            docker.build("spectreproject/spectre-base")
+                        }
+                    }
+                }
+                stage('CentOS') {
+                    agent {
+                        label "docker"
+                    }
+                    steps {
+                        script {
+                            // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+                            // So copy required Dockerfile to root dir for each build
+                            sh "cp ./CentOS/Dockerfile ."
+                            docker.build("spectreproject/spectre-base-centos")
+                            sh "rm Dockerfile"
+                        }
+                    }
+                }
+                stage('Fedora') {
+                    agent {
+                        label "docker"
+                    }
+                    steps {
+                        script {
+                            // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+                            // So copy required Dockerfile to root dir for each build
+                            sh "cp ./Fedora/Dockerfile ."
+                            docker.build("spectreproject/spectre-base-fedora")
+                            sh "rm Dockerfile"
+                        }
+                    }
+                }
+                stage('Raspberry Pi') {
+                    agent {
+                        label "docker"
+                    }
+                    steps {
+                        script {
+                            // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+                            // So copy required Dockerfile to root dir for each build
+                            sh "cp ./RaspberryPi/Dockerfile ."
+                            docker.build("spectreproject/spectre-base-raspi")
+                            sh "rm Dockerfile"
+                        }
+                    }
+                }
+                stage('Ubuntu') {
+                    agent {
+                        label "docker"
+                    }
+                    steps {
+                        script {
+                            // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
+                            // So copy required Dockerfile to root dir for each build
+                            sh "cp ./Ubuntu/latest/Dockerfile ."
+                            docker.build("spectreproject/spectre-base-ubuntu")
+                            sh "rm Dockerfile"
+                        }
+                    }
+                }
+            }
+        }
+        stage('Build and upload image') {
+            when {
+                anyOf { branch 'develop'; branch 'master'; branch "${BRANCH_TO_DEPLOY}" }
+            }
             parallel {
                 stage('Debian') {
                     agent {
