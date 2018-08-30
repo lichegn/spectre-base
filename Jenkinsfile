@@ -26,7 +26,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            docker.build("spectreproject/spectre-base")
+                            docker.build("spectreproject/spectre-base", "--rm")
                         }
                     }
                 }
@@ -39,7 +39,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./CentOS/Dockerfile ."
-                            docker.build("spectreproject/spectre-base-centos")
+                            docker.build("spectreproject/spectre-base-centos", "--rm")
                             sh "rm Dockerfile"
                         }
                     }
@@ -53,7 +53,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./Fedora/Dockerfile ."
-                            docker.build("spectreproject/spectre-base-fedora")
+                            docker.build("spectreproject/spectre-base-fedora", "--rm")
                             sh "rm Dockerfile"
                         }
                     }
@@ -67,7 +67,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./RaspberryPi/Dockerfile ."
-                            docker.build("spectreproject/spectre-base-raspi")
+                            docker.build("spectreproject/spectre-base-raspi", "--rm")
                             sh "rm Dockerfile"
                         }
                     }
@@ -81,7 +81,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./Ubuntu/latest/Dockerfile ."
-                            docker.build("spectreproject/spectre-base-ubuntu")
+                            docker.build("spectreproject/spectre-base-ubuntu", "--rm")
                             sh "rm Dockerfile"
                         }
                     }
@@ -99,7 +99,7 @@ pipeline {
                     }
                     steps {
                         script {
-                            def spectre_base = docker.build("spectreproject/spectre-base")
+                            def spectre_base = docker.build("spectreproject/spectre-base", "--rm")
                             docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
                                 spectre_base.push("latest")
                             }
@@ -115,7 +115,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./CentOS/Dockerfile ."
-                            def spectre_base = docker.build("spectreproject/spectre-base-centos")
+                            def spectre_base = docker.build("spectreproject/spectre-base-centos", "--rm")
                             docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
                                 spectre_base.push("latest")
                             }
@@ -132,7 +132,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./Fedora/Dockerfile ."
-                            def spectre_base = docker.build("spectreproject/spectre-base-fedora")
+                            def spectre_base = docker.build("spectreproject/spectre-base-fedora", "--rm")
                             docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
                                 spectre_base.push("latest")
                             }
@@ -149,7 +149,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./RaspberryPi/Dockerfile ."
-                            def spectre_base = docker.build("spectreproject/spectre-base-raspi")
+                            def spectre_base = docker.build("spectreproject/spectre-base-raspi", "--rm")
                             docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
                                 spectre_base.push("latest")
                             }
@@ -166,7 +166,7 @@ pipeline {
                             // Copy step on Dockerfile is not working if Dockerfile is not located on root dir!
                             // So copy required Dockerfile to root dir for each build
                             sh "cp ./Ubuntu/latest/Dockerfile ."
-                            def spectre_base = docker.build("spectreproject/spectre-base-ubuntu")
+                            def spectre_base = docker.build("spectreproject/spectre-base-ubuntu", "--rm")
                             docker.withRegistry('https://registry.hub.docker.com', '051efa8c-aebd-40f7-9cfd-0053c413266e') {
                                 spectre_base.push("latest")
                             }
@@ -175,6 +175,11 @@ pipeline {
                     }
                 }
             }
+        }
+    }
+    post {
+        always {
+            sh "docker system prune --all"
         }
     }
 }
