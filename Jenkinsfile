@@ -31,7 +31,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -50,7 +50,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -69,7 +69,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -88,7 +88,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -107,7 +107,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -132,7 +132,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -154,7 +154,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -176,7 +176,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -198,7 +198,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force"
                         }
                     }
                 }
@@ -220,7 +220,7 @@ pipeline {
                     }
                     post {
                         always {
-                            sh "docker system prune --all"
+                            sh "docker system prune --all --force --force"
                         }
                     }
                 }
