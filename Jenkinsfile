@@ -247,6 +247,7 @@ pipeline {
                         footer: 'Jenkins - the builder',
                         image: '',
                         link: "$env.BUILD_URL",
+                        successful: true,
                         thumbnail: 'https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png',
                         title: "$env.JOB_NAME",
                         webhookURL: 'https://discordapp.com/api/webhooks/486047110265962497/VOFINPxxtPSPMSl81xXE0ajJ17bbTgwyolCdmrSbd5RPR_aaERZZqQ3DKVxv86apn8SG'
@@ -269,6 +270,7 @@ pipeline {
                     footer: 'Jenkins - the builder',
                     image: '',
                     link: "$env.BUILD_URL",
+                    successful: true,
                     thumbnail: 'https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png',
                     title: "$env.JOB_NAME",
                     webhookURL: 'https://discordapp.com/api/webhooks/486047110265962497/VOFINPxxtPSPMSl81xXE0ajJ17bbTgwyolCdmrSbd5RPR_aaERZZqQ3DKVxv86apn8SG'
@@ -290,6 +292,7 @@ pipeline {
                     footer: 'Jenkins - the builder',
                     image: '',
                     link: "$env.BUILD_URL",
+                    successful: true,
                     thumbnail: 'https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png',
                     title: "$env.JOB_NAME",
                     webhookURL: 'https://discordapp.com/api/webhooks/486047110265962497/VOFINPxxtPSPMSl81xXE0ajJ17bbTgwyolCdmrSbd5RPR_aaERZZqQ3DKVxv86apn8SG'
