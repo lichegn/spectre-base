@@ -14,6 +14,20 @@ pipeline {
         DISCORD_WEBHOOK = credentials('991ce248-5da9-4068-9aea-8a6c2c388a19')
     }
     stages {
+        stage('Notification') {
+            steps {
+                discordSend(
+                        description: "**Started build of branch $BRANCH_NAME\n",
+                        footer: 'Jenkins - the builder',
+                        image: '',
+                        link: "$env.BUILD_URL",
+                        successful: true,
+                        thumbnail: 'https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png',
+                        title: "$env.JOB_NAME",
+                        webhookURL: "${DISCORD_WEBHOOK}"
+                )
+            }
+        }
         stage('Build image') {
             when {
                 not {
