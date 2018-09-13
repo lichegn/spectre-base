@@ -40,6 +40,15 @@ RUN apt-get install -y --no-install-recommends \
     libseccomp2 \
     wget
 
+# Latest and greatest version of 'dialog' is compiled on corresponding builder image,
+# So install dialog dependencies manually as long as the real package is not up2date
+# See https://packages.debian.org/stretch/dialog
+RUN apt-get install -y --no-install-recommends \
+    debianutils \
+    libc6 \
+    libncursesw5 \
+    libtinfo5
+
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
 RUN chmod +x /usr/local/bin/spectrecoind.sh
 
