@@ -19,8 +19,9 @@ RUN groupadd --gid ${GID} $GROUPNAME \
  && chown $USERNAME:$GROUPNAME /home/$USERNAME -R \
  && ulimit -v unlimited
 
-RUN mkdir -p /home/$USERNAME/.spectrecoin/tor \
- && touch /home/$USERNAME/.spectrecoin/tor/torrc
+RUN mkdir -p /home/${USERNAME}/.spectrecoin/tor \
+ && touch /home/${USERNAME}/.spectrecoin/tor/torrc \
+ && chown -R ${USERNAME}:${GROUPNAME} /home/${USERNAME}/.spectrecoin
 
 RUN apt-get update -y \
  && apt-get upgrade -y
