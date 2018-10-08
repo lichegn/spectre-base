@@ -27,10 +27,10 @@ RUN apt-get update -y \
 RUN apt-get install -y --no-install-recommends \
     ca-certificates \
     mc \
-    libboost-chrono1.62.0 \
-    libboost-filesystem1.62.0 \
-    libboost-program-options1.62.0 \
-    libboost-thread1.62.0 \
+    libboost-chrono1.67.0 \
+    libboost-filesystem1.67.0 \
+    libboost-program-options1.67.0 \
+    libboost-thread1.67.0 \
     libevent-2.0-5 \
     libgles2-mesa \
     libqt5webchannel5 \
