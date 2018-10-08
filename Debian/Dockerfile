@@ -39,7 +39,7 @@ RUN apt-get install -y --no-install-recommends \
     libseccomp2 \
     wget
 
-COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
+COPY ../spectrecoind.sh /usr/local/bin/spectrecoind.sh
 RUN chmod +x /usr/local/bin/spectrecoind.sh
 
 ENTRYPOINT ["/usr/local/bin/spectrecoind.sh"]
