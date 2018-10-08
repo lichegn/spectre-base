@@ -1,6 +1,8 @@
 FROM debian:stretch
 MAINTAINER HLXEasy <hlxeasy@gmail.com>
 
+COPY Debian/stretch-backports.list /etc/apt/sources.list.d/
+
 # Build parameters
 ARG USERNAME="spectre"
 ARG GROUPNAME="spectre"

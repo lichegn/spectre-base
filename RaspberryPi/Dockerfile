@@ -2,6 +2,7 @@ FROM arm32v7/debian:stretch-slim
 MAINTAINER HLXEasy <hlxeasy@gmail.com>
 
 COPY RaspberryPi/qemu-arm-static /usr/bin
+COPY Debian/stretch-backports.list /etc/apt/sources.list.d/
 
 # Build parameters
 ARG USERNAME="spectre"
