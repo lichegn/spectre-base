@@ -40,6 +40,8 @@ RUN apt-get install -y --no-install-recommends \
     libqt5webenginewidgets5 \
     libtool \
     libseccomp2 \
+    obfs4 \
+    tor \
     wget
 
 # Latest and greatest version of 'dialog' is compiled on corresponding builder image,

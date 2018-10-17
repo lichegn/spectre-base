@@ -39,6 +39,8 @@ RUN apt-get install -y --no-install-recommends \
     libqt5webenginewidgets5 \
     libtool \
     libseccomp2 \
+    obfs4 \
+    tor \
     wget
 
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
