@@ -31,10 +31,12 @@ RUN yum install -y \
     libtool \
     libzstd \
     mc \
+    obfs4 \
     openssh-clients \
     openssl \
     qt5 \
     qt5-qtwebengine \
+    tor \
     wget
 
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh

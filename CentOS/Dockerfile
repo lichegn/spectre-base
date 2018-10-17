@@ -21,7 +21,9 @@ RUN mkdir -p /home/${USERNAME}/.spectrecoin/tor \
  && touch /home/${USERNAME}/.spectrecoin/tor/torrc \
  && chown -R ${USERNAME}:${GROUPNAME} /home/${USERNAME}/.spectrecoin
 
-RUN yum update -y
+RUN yum install -y \
+    epel-release \
+ && yum update -y
 
 RUN yum install -y \
     less \
@@ -31,10 +33,12 @@ RUN yum install -y \
     libtool \
     libzstd \
     mc \
+    obfs4 \
     openssh-clients \
     openssl \
     qt5 \
     qt5-qtwebengine \
+    tor \
     wget
 
 COPY spectrecoind.sh /usr/local/bin/spectrecoind.sh
