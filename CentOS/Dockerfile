@@ -21,7 +21,8 @@ RUN mkdir -p /home/${USERNAME}/.spectrecoin/tor \
  && touch /home/${USERNAME}/.spectrecoin/tor/torrc \
  && chown -R ${USERNAME}:${GROUPNAME} /home/${USERNAME}/.spectrecoin
 
-RUN yum install epel-release \
+RUN yum install -y \
+    epel-release \
  && yum update -y
 
 RUN yum install -y \
