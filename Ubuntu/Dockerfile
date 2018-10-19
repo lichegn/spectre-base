@@ -21,7 +21,11 @@ RUN mkdir -p /home/${USERNAME}/.spectrecoin/tor \
  && touch /home/${USERNAME}/.spectrecoin/tor/torrc \
  && chown -R ${USERNAME}:${GROUPNAME} /home/${USERNAME}/.spectrecoin
 
+# Define volume for Spectrecoin data
 VOLUME /home/${USERNAME}/.spectrecoin
+
+# Expose default RPC port
+EXPOSE 8332
 
 RUN apt-get update -y \
  && apt-get upgrade -y
