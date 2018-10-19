@@ -21,6 +21,8 @@ RUN mkdir -p /home/${USERNAME}/.spectrecoin/tor \
  && touch /home/${USERNAME}/.spectrecoin/tor/torrc \
  && chown -R ${USERNAME}:${GROUPNAME} /home/${USERNAME}/.spectrecoin
 
+VOLUME /home/${USERNAME}/.spectrecoin
+
 RUN apt-get update -y \
  && apt-get upgrade -y
 
